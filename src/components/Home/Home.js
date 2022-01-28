@@ -4,15 +4,17 @@ import "./Home.scss"
 import homeIcon from "../../images/popcorn.png"
 import movieApi from "../../common/apis/movieApi";
 import {APIKey} from "../../common/apis/movieApiKey";
+import { useDispatch } from 'react-redux';
+import { addMovies } from '../../features/movies/movieSlice';
 
 const Home = () => {
 
+  
+  const movieSearch = "Harry";
+  const dispatch = useDispatch();
 
   // Get the Movies
   useEffect( () => {
-  
-    const movieSearch = "Harry";
-  
     // Gets the movies based on the movie search
     const fetchMovies = async () => {
       const response = await movieApi.get(
@@ -20,11 +22,12 @@ const Home = () => {
       ).catch((error) => {
         console.log("Error: ", error);
       });
-      console.log("Reponse from API: ", response);
+
+      dispatch(addMovies(response.data));
     };
-  
+
     fetchMovies()
-  
+
   },[]);
 
 
