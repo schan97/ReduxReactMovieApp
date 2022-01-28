@@ -1,0 +1,24 @@
+@import "./common/colors.scss";
+@font-face {
+    font-family: Roboto-Reg;
+    src: url(./common/fonts/Roboto/Roboto-Regular.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto-reg, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background: $primary-color;
+}
+
+.container{
+    margin: 0px 40px;
+}
