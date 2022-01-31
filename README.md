@@ -1,3 +1,6 @@
+# When Cloning Repo:
+Please run: npm install, npm install redux-react @reduxjs/toolkit, npm install axios, npm install react-router-dom, npm install node-sass --save
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
