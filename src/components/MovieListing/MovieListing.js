@@ -5,6 +5,8 @@ import MovieCard from "../MovieCard/MovieCard";
 import "./MovieListing.scss"
 
 const MovieListing = () => {
+
+  // use selectors allows you to get the state from the slice
   const movies = useSelector(getAllMovies);
   let renderMovies = "";
 
