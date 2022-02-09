@@ -1,0 +1,58 @@
+@import "../../common/colors.scss";
+
+.title-section{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 40px 0px;
+    color: $font-primary;
+    font-weight: 400;
+}
+
+.title-rating{
+    padding-left: 3px;
+    margin-top: 20px;
+    color: $font-secondary;
+    display: flex;
+    span{
+        margin-right: 20px;
+    }
+}
+
+.title{
+    font-size: 40px;
+    color: $font-primary;
+}
+
+.title-plot{
+    margin-top: 20px;
+    line-height: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.title-info > div span:first-child{
+    padding: 10px 0px;
+    color: $font-primary;
+    font-weight: 600;
+    width: 100px;
+    display: inline-block;
+}
+
+.title-info > div span{
+    color: $font-secondary;
+}
+
+.fa-solid.fa-star{
+    color: #fcba03;
+}
+
+.fa-solid.fa-thumbs-up{
+    color: #00d123;
+}
+
+.fa-solid.fa-film{
+    color: #bef2ff;
+}
+
+.fa-solid.fa-calendar{
+    color: #be0000;
+}

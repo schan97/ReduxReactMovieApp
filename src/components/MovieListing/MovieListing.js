@@ -11,7 +11,7 @@ const MovieListing = () => {
   const shows = useSelector(getAllShows);
   let renderMovies, renderShows = "";
 
-  console.log(movies.Response);
+  //console.log(movies.Response);
     
   renderMovies = movies.Response === "True" ? (
     movies.Search.map((movie, index) => (

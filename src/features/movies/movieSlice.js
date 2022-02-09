@@ -9,7 +9,7 @@ export const fetchAsyncMovies = createAsyncThunk(
 
         const response = await movieApi.get(
           `?apiKey=${APIKey}&s=${movieSearch}&type=movie`
-        )
+        );
 
          return response.data;
     }
@@ -22,7 +22,19 @@ export const fetchAsyncShows = createAsyncThunk(
 
         const response = await movieApi.get(
           `?apiKey=${APIKey}&s=${showsSearch}&type=series`
-        )
+        );
+
+         return response.data;
+    }
+);
+
+export const fetchAsyncTitleDetails = createAsyncThunk(
+    'title/fetchAsyncTitleDetails', 
+    async (id) => {
+
+        const response = await movieApi.get(
+          `?apiKey=${APIKey}&i=${id}&Plot=full`
+        );
 
          return response.data;
     }
@@ -31,6 +43,7 @@ export const fetchAsyncShows = createAsyncThunk(
 const initialState = {
     movies:{},
     shows:{},
+    titleDetails:{},
 }
 
 const movieSlice = createSlice({
@@ -67,10 +80,25 @@ const movieSlice = createSlice({
         [fetchAsyncShows.rejected] : () => {
             console.log("Rejected")
         },
+
+
+        //Details
+        [fetchAsyncTitleDetails.pending] : () => {
+            console.log("Pending")
+        },
+        [fetchAsyncTitleDetails.fulfilled] : (state, {payload}) => {
+            console.log("Fetched Successfull");
+            return {...state, titleDetails: payload};
+        },
+        [fetchAsyncTitleDetails.rejected] : () => {
+            console.log("Rejected")
+        },
     },
 });
 
 export const {addMovies} = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllShows = (state) => state.movies.shows;
+export const getTitleDetails = (state) => state.movies.titleDetails;
+
 export default movieSlice.reducer;
