@@ -51,11 +51,19 @@ const movieSlice = createSlice({
     // Slice named movies
     name:"movies",
     initialState,
+
+    // reducers are used for sync tasks
     reducers:{
-        addMovies:(state, {payload}) => {
-            state.movies = payload;
+        // addMovies:(state, {payload}) => {
+        //     state.movies = payload;
+        // }
+
+        removeTitleDetails: (state) => {
+            state.titleDetails= {};
         }
     },
+
+    // extraReducers are used for async tasks
     extraReducers: {
         // Movies
         [fetchAsyncMovies.pending] : () => {
@@ -96,7 +104,10 @@ const movieSlice = createSlice({
     },
 });
 
-export const {addMovies} = movieSlice.actions;
+// Exporting actions that are inside reducers
+// export const {addMovies} = movieSlice.actions;
+export const {removeTitleDetails} = movieSlice.actions;
+
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllShows = (state) => state.movies.shows;
 export const getTitleDetails = (state) => state.movies.titleDetails;
