@@ -11,11 +11,13 @@ const Home = () => {
   // dispatch allows you to get the methods in the reducers
   const dispatch = useDispatch();
 
+  const movieSearch = "pixar";
+  const showsSearch = "pixar";
   
   useEffect( () => {
     // Get the Movies
-    dispatch(fetchAsyncMovies());
-    dispatch(fetchAsyncShows());
+    dispatch(fetchAsyncMovies(movieSearch));
+    dispatch(fetchAsyncShows(showsSearch));
 
   },[dispatch]);
 
