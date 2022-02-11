@@ -1,10 +1,15 @@
 import React from 'react';
+import Slider from 'react-slick';
+import { SlickSettings } from '../../common/SlickSettings';
 import {useSelector} from "react-redux";
 import {getAllMovies, getAllShows} from "../../features/movies/movieSlice";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieListing.scss"
 
 const MovieListing = () => {
+
+  // React Slick Slider Settings
+
 
   // use selectors allows you to get the state from the slice
   const movies = useSelector(getAllMovies);
@@ -39,12 +44,20 @@ const MovieListing = () => {
       {/* Movies */}
       <div className='movie-list'>
         <h2>Movies</h2>
-        <div className='movie-container'>{renderMovies}</div>
+        <div className='movie-container'>
+          <Slider {...SlickSettings}>
+            {renderMovies}
+          </Slider> 
+        </div>
       </div>
 
       <div className='show-list'>
         <h2>Shows</h2>
-        <div className='movie-container'>{renderShows}</div>
+        <div className='movie-container'>
+          <Slider {...SlickSettings}>
+            {renderShows}
+          </Slider>  
+        </div>
       </div>
     </div>
   );
