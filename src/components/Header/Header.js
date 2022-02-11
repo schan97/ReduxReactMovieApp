@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useDispatch } from "react-redux";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { fetchAsyncMovies, fetchAsyncShows } from "../../features/movies/movieSlice";
 import user from "../../images/user.png"
 import "./Header.scss"
@@ -8,6 +8,7 @@ import "./Header.scss"
 const Header = () => {
   const [term, setTerm] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -20,6 +21,9 @@ const Header = () => {
     dispatch(fetchAsyncMovies(term));
     dispatch(fetchAsyncShows(term));
     setTerm("");
+
+    // navigate to home to display the new results
+    navigate("/");
   };
   return (
     <div className='header'>
@@ -35,6 +39,8 @@ const Header = () => {
           <input type="text" value={term} placeholder="Search Movies or Shows" onChange={(e)=> setTerm(e.target.value)}/>
           <button type="submit"><i className="fas fa-search"></i></button>
         </form>
+
+        
       </div>
 
       
