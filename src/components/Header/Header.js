@@ -13,17 +13,21 @@ const Header = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if(term == "")
+    if(term != "")
+    {
+      dispatch(fetchAsyncMovies(term));
+      dispatch(fetchAsyncShows(term));
+      setTerm("");
+  
+      // navigate to home to display the new results
+      navigate("/");
+    }
+    else
     {
       alert("Please enter a search term!");
     }
 
-    dispatch(fetchAsyncMovies(term));
-    dispatch(fetchAsyncShows(term));
-    setTerm("");
-
-    // navigate to home to display the new results
-    navigate("/");
+   
   };
   return (
     <div className='header'>
