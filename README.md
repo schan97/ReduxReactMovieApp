@@ -1,5 +1,5 @@
 # When Cloning Repo:
-Please run: npm install, npm install redux-react @reduxjs/toolkit, npm install axios, npm install react-router-dom, npm install node-sass --save
+Please run: npm install, npm install redux-react @reduxjs/toolkit, npm install axios, npm install react-router-dom, npm install node-sass --save, npm install react-slick
 
 # Getting Started with Create React App
 
